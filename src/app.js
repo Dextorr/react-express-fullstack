@@ -27,7 +27,10 @@ class App extends React.Component {
         {this.state.data.map(game =>
           <div key={game._id}>
             <h2>{game.title}</h2>
-            <div className="image" style={{backgroundImage: `url(${game.image})`}}></div>
+            <div
+              className="image"
+              style={{backgroundImage: `url(${game.image})`}}
+            ></div>
           </div>
         )}
       </div>

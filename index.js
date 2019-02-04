@@ -35,4 +35,7 @@ app.post('/games', (req, res) => {
     .catch(err => res.status(422).json(err.message))
 })
 
+app.use(express.static(`${__dirname}/dist`))
+app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
+
 app.listen(4000, () => console.log('Express listening on 4000'))
