@@ -8,7 +8,7 @@ const app = express()
 
 app.use(bodyParser.json())
 
-mongoose.connect('mongodb://localhost/games')
+mongoose.connect(process.env.MONGODB_URI)
 
 const gameSchema = new mongoose.Schema({
   title: { type: String, required: true },
@@ -30,7 +30,7 @@ app.get('/api/games', (req, res) => {
     .catch(err => res.status(404).json(err.message))
 })
 
-app.post('/games', (req, res) => {
+app.post('/api/games', (req, res) => {
   Game
     .create(req.body)
     .then(game => res.status(201).json(game))
