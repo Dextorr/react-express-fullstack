@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
@@ -38,4 +40,6 @@ app.post('/games', (req, res) => {
 app.use(express.static(`${__dirname}/dist`))
 app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
 
-app.listen(4000, () => console.log('Express listening on 4000'))
+app.listen(process.env.PORT, () =>
+  console.log(`Express listening on ${process.env.PORT}`)
+)
