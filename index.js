@@ -21,7 +21,7 @@ const gameSchema = new mongoose.Schema({
 
 const Game = mongoose.model('Game', gameSchema)
 
-app.get('/games', (req, res) => {
+app.get('/api/games', (req, res) => {
   Game
     .find()
     .then(games => res.status(200).json(games))
