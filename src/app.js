@@ -1,8 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
+import 'bulma'
 import './style.scss'
+
+import Header from './components/common/Header'
+import Home from './components/Home'
+import GamesIndex from './components/games/GamesIndex'
+import GamesNew from './components/games/GamesNew'
+import GameShow from './components/games/GameShow'
 
 class App extends React.Component {
   constructor(){
@@ -22,18 +30,17 @@ class App extends React.Component {
 
   render(){
     return (
-      <div>
-        <h1>DDL Video Games</h1>
-        {this.state.data.map(game =>
-          <div key={game._id}>
-            <h2>{game.title}</h2>
-            <div
-              className="image"
-              style={{backgroundImage: `url(${game.image})`}}
-            ></div>
-          </div>
-        )}
-      </div>
+      <BrowserRouter>
+        <div>
+          <Header />
+          <Switch>
+            <Route path="/games/new" component={GamesNew} />
+            <Route path="/games/:id" component={GameShow} />
+            <Route path="/games" component={GamesIndex} />
+            <Route path="/" component={Home} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     )
   }
 }
