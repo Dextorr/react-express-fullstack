@@ -22,9 +22,9 @@ class Header extends React.Component {
       <header>
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
-            <a className="navbar-item" href="#">
+            <Link className="navbar-item" to="/">
               <h1 className="title is-1">DDL Games</h1>
-            </a>
+            </Link>
 
             <a role="button"
               className={`
