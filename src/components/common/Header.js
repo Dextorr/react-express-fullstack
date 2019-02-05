@@ -13,8 +13,7 @@ class Header extends React.Component {
     this.clickHandler = this.clickHandler.bind(this)
   }
 
-  clickHandler(e){
-    e.target.classList.toggle('is-active')
+  clickHandler(){
     this.setState({ menuActive: !this.state.menuActive})
   }
 
@@ -27,7 +26,12 @@ class Header extends React.Component {
               <h1 className="title is-1">DDL Games</h1>
             </a>
 
-            <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" onClick={this.clickHandler}>
+            <a role="button"
+              className={`
+                navbar-burger
+                ${this.state.menuActive ? 'is-active' : ''}
+              `}
+              onClick={this.clickHandler}>
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
@@ -38,6 +42,7 @@ class Header extends React.Component {
             className={`navbar-menu
                 ${this.state.menuActive ? 'is-active' : ''}
               `}
+            onClick={this.clickHandler}
           >
             <div className="navbar-end">
               <Link to="/" className="navbar-item">Home</Link>
