@@ -27,7 +27,7 @@ class GamesIndex extends React.Component {
       <section className="section GamesIndex">
         <div className="container columns is-multiline">
           {games.map(game =>
-            <Link to={`/games/${game._id}`} key={game._id} className="column is-one-third">
+            <Link to={`/games/${game._id}`} key={game._id} className="column is-one-quarter">
               <GameCard {...game} />
             </Link>
           )}

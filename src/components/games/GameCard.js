@@ -1,6 +1,6 @@
 import React from 'react'
 
-const GameCard = ({ title, image, developer, genre }) => {
+const GameCard = ({ title, image, developer, genre, metascore, release }) => {
   return(
     <div className="card">
       <div className="card-header">
@@ -14,6 +14,8 @@ const GameCard = ({ title, image, developer, genre }) => {
       <div className="card-content">
         <h4 className="subtitle is-5"><strong>Developer:</strong> {developer}</h4>
         <h4><strong>Genre:</strong> {genre}</h4>
+        <h4><strong>Release Date:</strong> {new Date(release).toLocaleDateString()}</h4>
+        <h4><strong>Metascore:</strong> {metascore}</h4>
       </div>
     </div>
   )

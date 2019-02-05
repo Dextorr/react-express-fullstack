@@ -8,7 +8,7 @@ function indexRoute(req, res){
 
 function createRoute(req, res){
   Game
-    .find()
+    .create(req.body)
     .then(game => res.status(201).json(game))
     .catch(err => res.status(422).json(err.message))
 }
